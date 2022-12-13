@@ -17,7 +17,7 @@ function Translate(stroka : string) : string;
   end;
   
 begin
-  AssignFile(f,'D:\code_file\test_file.txt');
+  AssignFile(f,'D:\code_file\test_file_for_T5_3.txt');
   Reset(f, Encoding.UTF8);
   while not Eof(f) do
   begin
