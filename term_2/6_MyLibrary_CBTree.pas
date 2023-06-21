@@ -1,4 +1,6 @@
-﻿program MyLibrary;
+﻿{В СВ дереве найти расположение(высоту) элемента в дереве и его расположение среди братьев}
+
+program MyLibrary;
 
 
 type
@@ -109,6 +111,41 @@ end;
 
 
 
+procedure DeleteItemWithChildren(var Tree: PItem; folder: string);
+var
+  CurrentItem: PItem;
+  PrevItem: PItem;
+begin
+  CurrentItem := Tree;
+  PrevItem := nil;
+
+  while CurrentItem <> nil do
+  begin
+    if CurrentItem^.folder = folder then
+    begin
+      if PrevItem <> nil then
+        PrevItem^.bro := CurrentItem^.bro
+      else
+        Tree := CurrentItem^.bro;
+
+      DeleteTree(CurrentItem^.child);
+      dispose(CurrentItem);
+      Exit;
+    end;
+
+    PrevItem := CurrentItem;
+    CurrentItem := CurrentItem^.bro;
+  end;
+
+  CurrentItem := Tree;
+
+  while CurrentItem <> nil do
+  begin
+    DeleteItemWithChildren(CurrentItem^.child, folder);
+    CurrentItem := CurrentItem^.bro;
+  end;
+end;
+
 var
   Tree: PItem;
   Depth: integer;
@@ -135,5 +172,7 @@ begin
   FindDepPos(Tree, name, Depth, Position);
   writeln('Номер уровня, элемента "' + name + '": ' + Depth);
   writeln('Номер позиции на уровне, элемента "' + name + '": ' + Position);
+  DeleteItemWithChildren(Tree, '1984');
+  PrintTree(Tree,2);
   DeleteTree(Tree);
 end.
