@@ -15,6 +15,15 @@ namespace Circle_Lab4
             {
                 Console.WriteLine(elem.GetInfo());
             }
+            var maximumrad = container.MaxRadius();
+            foreach (var elem in container.LoadList()) 
+            {
+                if (maximumrad == elem.Radius)
+                { 
+                    Console.WriteLine("Окружность с наибольшим радиусом");
+                    Console.WriteLine(elem.GetInfo());
+                }
+            }
 
         }
     }

@@ -36,5 +36,22 @@ namespace Circle_Lab4
         {
             return Circles;
         }
+
+        public int MaxRadius()
+        {
+            int maxrad = 0;
+            foreach (TCircle circle in Circles) 
+            {
+                if (circle.Radius >= maxrad)
+                {
+                    maxrad = circle.Radius;
+                }
+            }
+            foreach (TCircle circle in Circles)
+            {
+                if (circle.Radius == maxrad) { maxrad = circle.Radius; }
+            }
+            return maxrad;
+        }
     }
 }
