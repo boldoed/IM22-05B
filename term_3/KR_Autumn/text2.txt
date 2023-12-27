@@ -1,0 +1,4 @@
+circle 0 0 white 5 1
+image 0 1 white text3.txt
+circle 0 5 white 5 1
+circle 0 10 white 5 1

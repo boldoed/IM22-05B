@@ -1,0 +1,12 @@
+point 0 0 red
+line 1 1 green 1 2 2
+circle 0 0 red 2 0
+point 2 -1 red
+line 0 0 red 1 -2 2
+point 10 0 red
+circle 1 -1 gray 1 0
+point 1 -1 yellow
+point 5 3 blue
+image 1 0 white text2.txt
+circle -1 -1 red 3 1
+line -1 -1 green 0 -1 3
